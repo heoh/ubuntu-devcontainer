@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  devcontainer:
+    container_name: devcontainer
+    hostname: devcontainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - base=ubuntu:20.04
+        - ubuntu_archive_url=http://mirror.kakao.com/ubuntu/
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - USER_NAME=${USER}
+      - GROUP_NAME=${USER}
+    restart: unless-stopped

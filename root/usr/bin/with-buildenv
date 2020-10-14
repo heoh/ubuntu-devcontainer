@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+exec s6-envdir /var/run/devcontainer/build_environment $@
