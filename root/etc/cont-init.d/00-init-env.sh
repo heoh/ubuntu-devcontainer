@@ -21,3 +21,8 @@ rm -rf /var/run/s6/container_environment/{PWD,SHLVL,_}
 
 # Update build environment
 cp /var/run/s6/container_environment/* /var/run/devcontainer/build_environment
+
+# Update user environment
+mkdir -p /var/run/devcontainer/user_environment
+s6-dumpenv /var/run/devcontainer/user_environment
+rm -rf /var/run/devcontainer/user_environment/{CWD,HOME,PWD,SHLVL,_}

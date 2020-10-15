@@ -5,7 +5,7 @@ if [ ${PUID} -eq 0 ]; then
 fi
 
 groupadd -g ${PGID} ${GROUP_NAME}
-useradd -m -s /bin/bash -g ${GROUP_NAME} -u ${PUID} ${USER_NAME}
+useradd -m -s /usr/bin/userbash -g ${GROUP_NAME} -u ${PUID} ${USER_NAME}
 usermod -a -G sudo ${USER_NAME}
 
 # Set default password (= username)
