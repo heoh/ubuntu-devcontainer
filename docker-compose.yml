@@ -11,14 +11,19 @@ services:
         - base=ubuntu:20.04
         # - ubuntu_archive_url=http://mirror.kakao.com/ubuntu/
         - use_openssh_server=true
+        - use_docker=true
     environment:
       - PUID=1000
       - PGID=1000
       - USER_NAME=${USER}
       - GROUP_NAME=${USER}
+      # - DOCKER_GID=1001
+      - DOCKER_ALLOWS_NON_ROOT=true
     ports:
       - "2222:22"
     volumes:
       - ./data:/mnt/data
+      - /var/run:/mnt/host/var/run
+      - /home/${USER}/workspaces:/home/${USER}/workspaces
     network_mode: bridge
     restart: unless-stopped
