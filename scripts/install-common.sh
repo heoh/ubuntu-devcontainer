@@ -10,7 +10,9 @@ apt-get update
 apt-get install -y \
   curl \
   locales \
+  nano \
   sudo \
+  vim \
   wget
 rm -rf /var/lib/apt/lists/*
 
