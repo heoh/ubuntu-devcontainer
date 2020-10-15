@@ -1,0 +1,3 @@
+#!/usr/bin/with-buildenv bash
+
+exec /usr/sbin/sshd -D
