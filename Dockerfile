@@ -18,6 +18,12 @@ RUN if [ "${use_openssh_server}" = true ]; then \
         ${script_path}/install-openssh-server.sh; \
     fi
 
+ARG use_docker=false
+ADD scripts/install-docker.sh ${script_path}/install-docker.sh
+RUN if [ "${use_docker}" = true ]; then \
+        ${script_path}/install-docker.sh; \
+    fi
+
 RUN env_path=/var/run/devcontainer/build_environment \
     && mkdir -p ${env_path} \
     && s6-dumpenv ${env_path}
