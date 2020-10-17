@@ -13,6 +13,7 @@ services:
         - use_openssh_server=true
         - use_docker=true
         - use_git=true
+        - use_build_essential=true
     environment:
       - PUID=1000
       - PGID=1000
