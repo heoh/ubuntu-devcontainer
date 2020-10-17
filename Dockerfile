@@ -1,7 +1,7 @@
 ARG base=ubuntu:20.04
 FROM "${base}"
 
-ARG script_path=/tmp/devcontainer/scripts
+ARG script_path=/tmp/devcont-scripts
 RUN mkdir -p ${script_path}
 
 ARG ubuntu_archive_url
@@ -39,6 +39,8 @@ RUN if [ "${use_build_essential}" = true ]; then \
 RUN env_path=/var/run/devcontainer/build_environment \
     && mkdir -p ${env_path} \
     && s6-dumpenv ${env_path}
+
+RUN rm -rf ${script_path}
 
 ADD root/ /
 ENTRYPOINT ["/init"]

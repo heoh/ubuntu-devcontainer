@@ -12,12 +12,11 @@ usermod -a -G sudo ${USER_NAME}
 if [ -d "${USER_HOME}" ] && [ "$(stat -c "%U" "${USER_HOME}")" != "${USER_NAME}" ]; then
   chown ${PUID}:${PGID} ${USER_HOME}
 
-  tmp=/tmp/devcontainer
-  mkdir -p ${tmp}/skel
-  cp -r -T /etc/skel ${tmp}/skel
-  chown -R ${PUID}:${PGID} ${tmp}/skel
-  cp -r -T ${tmp}/skel ${USER_HOME}
-  rm -rf ${tmp}
+  mkdir -p /tmp/devcont-skel
+  cp -r -T /etc/skel /tmp/devcont-skel
+  chown -R ${PUID}:${PGID} /tmp/devcont-skel
+  cp -r -T /tmp/devcont-skel ${USER_HOME}
+  rm -rf /tmp/devcont-skel
 fi
 
 # Set default password (= username)
