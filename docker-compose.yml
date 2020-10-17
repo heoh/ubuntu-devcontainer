@@ -12,6 +12,7 @@ services:
         # - ubuntu_archive_url=http://mirror.kakao.com/ubuntu/
         - use_openssh_server=true
         - use_docker=true
+        - use_git=true
     environment:
       - PUID=1000
       - PGID=1000

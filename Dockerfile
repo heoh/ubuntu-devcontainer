@@ -24,6 +24,12 @@ RUN if [ "${use_docker}" = true ]; then \
         ${script_path}/install-docker.sh; \
     fi
 
+ARG use_git=false
+ADD scripts/install-git.sh ${script_path}/install-git.sh
+RUN if [ "${use_git}" = true ]; then \
+        ${script_path}/install-git.sh; \
+    fi
+
 RUN env_path=/var/run/devcontainer/build_environment \
     && mkdir -p ${env_path} \
     && s6-dumpenv ${env_path}
