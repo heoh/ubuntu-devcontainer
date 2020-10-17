@@ -26,6 +26,16 @@ You can configure it by editing *docker-compose.yml*.
 
 ### OpenSSH-Server
 
+To enable it, set the build argument to `use_openssh_server=true`.
+
+You can change the ssh port by editing *docker-compose.yml*.
+
+When you run the container, configuration files are created in *data/ssh*:
+* *data/ssh/.ssh/authorized_keys*: You can set the public key.
+* *data/ssh/config/sshd_config*: You can modify the config of the ssh server.
+
+After modifying the configuration file, container restart is required.
+
 ### Docker
 
 To enable it, set the build argument to `use_docker=true`.
