@@ -30,6 +30,12 @@ RUN if [ "${use_git}" = true ]; then \
         ${script_path}/install-git.sh; \
     fi
 
+ARG use_build_essential=false
+ADD scripts/install-build-essential.sh ${script_path}/install-build-essential.sh
+RUN if [ "${use_build_essential}" = true ]; then \
+        ${script_path}/install-build-essential.sh; \
+    fi
+
 RUN env_path=/var/run/devcontainer/build_environment \
     && mkdir -p ${env_path} \
     && s6-dumpenv ${env_path}
