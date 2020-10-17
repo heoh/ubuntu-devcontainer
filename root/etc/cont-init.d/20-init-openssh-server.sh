@@ -19,9 +19,13 @@ if [ ! -e /mnt/data/ssh/.ssh/authorized_keys ]; then
 fi
 
 # Link to user config
-rm -Rf /etc/ssh
-ln -s /mnt/data/ssh/config /etc/ssh
-ln -s /mnt/data/ssh/.ssh ${USER_HOME}/.ssh
+if [ ! -L "/etc/ssh" ]; then
+  rm -Rf /etc/ssh
+  ln -s /mnt/data/ssh/config /etc/ssh
+fi
+if [ ! -L "${USER_HOME}/.ssh" ]; then
+  ln -s /mnt/data/ssh/.ssh ${USER_HOME}/.ssh
+fi
 
 # Initialize openssh-server
 mkdir -p /run/sshd
