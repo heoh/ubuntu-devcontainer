@@ -36,6 +36,12 @@ RUN if [ "${use_build_essential}" = true ]; then \
         ${script_path}/install-build-essential.sh; \
     fi
 
+ARG use_jdk=false
+ADD scripts/install-jdk.sh ${script_path}/install-jdk.sh
+RUN if [ "${use_jdk}" = true ]; then \
+        ${script_path}/install-jdk.sh; \
+    fi
+
 RUN env_path=/var/run/devcontainer/build_environment \
     && mkdir -p ${env_path} \
     && s6-dumpenv ${env_path}
