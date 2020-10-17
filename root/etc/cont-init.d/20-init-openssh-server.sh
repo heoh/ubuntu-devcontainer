@@ -11,10 +11,10 @@ mkdir -p /mnt/data/ssh/config
 mkdir -p /mnt/data/ssh/.ssh
 
 # Copy default config
-if [ ! -e /mnt/data/ssh/config/sshd_config ]; then
+if [ ! -e "/mnt/data/ssh/config/sshd_config" ]; then
   cp -a /etc/ssh/sshd_config /mnt/data/ssh/config/sshd_config
 fi
-if [ ! -e /mnt/data/ssh/.ssh/authorized_keys ]; then
+if [ ! -e "/mnt/data/ssh/.ssh/authorized_keys" ]; then
   touch /mnt/data/ssh/.ssh/authorized_keys
 fi
 
