@@ -2,6 +2,26 @@
 
 Docker container for development
 
+## How to use it
+
+Connect with ssh and use it like a remote server.
+
+### Run
+
+```sh
+docker-compose up -d
+```
+
+### Stop
+
+```sh
+docker-compose down
+```
+
+### Setting
+
+You can configure it by editing *docker-compose.yml*.
+
 ## Components
 
 ### OpenSSH-Server
