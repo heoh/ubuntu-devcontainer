@@ -5,6 +5,9 @@ ARG script_path=/tmp/devcont-scripts
 RUN mkdir -p ${script_path}
 
 ARG ubuntu_archive_url
+ADD scripts/set-archive.sh ${script_path}/set-archive.sh
+RUN ${script_path}/set-archive.sh
+
 ADD scripts/install-common.sh ${script_path}/install-common.sh
 RUN ${script_path}/install-common.sh
 
