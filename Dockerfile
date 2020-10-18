@@ -8,12 +8,12 @@ ARG ubuntu_archive_url
 ADD scripts/set-archive.sh ${script_path}/set-archive.sh
 RUN ${script_path}/set-archive.sh
 
-ADD scripts/install-common.sh ${script_path}/install-common.sh
-RUN ${script_path}/install-common.sh
-
 ARG s6_overlay_version
 ADD scripts/install-s6-overlay.sh ${script_path}/install-s6-overlay.sh
 RUN ${script_path}/install-s6-overlay.sh
+
+ADD scripts/install-common.sh ${script_path}/install-common.sh
+RUN ${script_path}/install-common.sh
 
 ARG use_openssh_server=false
 ADD scripts/install-openssh-server.sh ${script_path}/install-openssh-server.sh
