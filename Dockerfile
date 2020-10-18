@@ -1,6 +1,7 @@
 ARG base=ubuntu:20.04
 FROM "${base}"
 
+# Initialize build
 ARG script_path=/tmp/devcont-scripts
 RUN mkdir -p ${script_path}
 
@@ -12,6 +13,7 @@ ARG s6_overlay_version
 ADD scripts/install-s6-overlay.sh ${script_path}/install-s6-overlay.sh
 RUN ${script_path}/install-s6-overlay.sh
 
+# Install packages
 ADD scripts/install-common.sh ${script_path}/install-common.sh
 RUN ${script_path}/install-common.sh
 
@@ -45,6 +47,7 @@ RUN if [ "${use_jdk}" = true ]; then \
         ${script_path}/install-jdk.sh; \
     fi
 
+# Finalize build
 RUN env_path=/var/run/devcontainer/build_environment \
     && mkdir -p ${env_path} \
     && s6-dumpenv ${env_path}
