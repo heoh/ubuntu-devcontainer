@@ -12,6 +12,8 @@ mkdir -p /mnt/data/ssh/.ssh
 
 # Copy default config
 if [ ! -e "/mnt/data/ssh/config/sshd_config" ]; then
+  sed -i 's/#\?\(X11UseLocalhost\s*\).*$/\1 no/' /etc/ssh/sshd_config
+
   cp -a /etc/ssh/sshd_config /mnt/data/ssh/config/sshd_config
 fi
 if [ ! -e "/mnt/data/ssh/.ssh/authorized_keys" ]; then
