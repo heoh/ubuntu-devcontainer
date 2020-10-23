@@ -1,4 +1,4 @@
-#!/usr/bin/with-buildenv bash
+#!/usr/bin/with-devcontenv bash
 
 # Check enabled
 if [ "${use_openssh_server}" != true ]; then

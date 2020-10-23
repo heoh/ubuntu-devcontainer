@@ -5,6 +5,9 @@ FROM "${base}"
 ARG script_path=/tmp/devcont-scripts
 RUN mkdir -p ${script_path}
 
+ADD root/usr/bin/*devcont* /usr/bin/
+SHELL ["/usr/bin/with-devcontenv", "bash", "-c"]
+
 ARG ubuntu_archive_url
 ADD scripts/set-archive.sh ${script_path}/set-archive.sh
 RUN ${script_path}/set-archive.sh
@@ -48,9 +51,8 @@ RUN if [ "${use_jdk}" = true ]; then \
     fi
 
 # Finalize build
-RUN env_path=/var/run/devcontainer/build_environment \
-    && mkdir -p ${env_path} \
-    && s6-dumpenv ${env_path}
+ADD scripts/export-args.sh ${script_path}/export-args.sh
+RUN ${script_path}/export-args.sh
 
 RUN rm -rf ${script_path}
 

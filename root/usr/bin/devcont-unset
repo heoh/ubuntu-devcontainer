@@ -1,0 +1,12 @@
+#!/bin/bash
+
+envdir=/var/run/devcontainer/environment
+
+for name in "$@"; do
+  file="$envdir/$name"
+
+  if [ -f "$file" ]; then
+    rm "$file"
+    unset $name
+  fi
+done

@@ -12,5 +12,5 @@ apt-get install -y \
 rm -rf /var/lib/apt/lists/*
 
 # Set locale
-export LANG=C.UTF-8
-export LC_ALL=C.UTF-8
+source devcont-export LANG=C.UTF-8
+source devcont-export LC_ALL=C.UTF-8

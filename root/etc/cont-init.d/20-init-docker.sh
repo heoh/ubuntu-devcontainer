@@ -1,4 +1,4 @@
-#!/usr/bin/with-buildenv bash
+#!/usr/bin/with-devcontenv bash
 
 # Check enabled
 if [ "${use_docker}" != true ]; then
