@@ -1,3 +1,3 @@
-#!/usr/bin/with-buildenv bash
+#!/usr/bin/with-devcontenv bash
 
 exec dockerd 2>&1 | sudo -u ${USER_NAME} tee /mnt/data/docker/docker.log > /dev/null
