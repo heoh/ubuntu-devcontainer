@@ -56,6 +56,12 @@ RUN if [ "${use_conda}" = true ]; then \
         ${script_path}/install-conda.sh; \
     fi
 
+ARG use_yarn=false
+ADD scripts/install-yarn.sh ${script_path}/install-yarn.sh
+RUN if [ "${use_yarn}" = true ]; then \
+        ${script_path}/install-yarn.sh; \
+    fi
+
 # Finalize build
 ADD scripts/export-args.sh ${script_path}/export-args.sh
 RUN ${script_path}/export-args.sh
