@@ -50,6 +50,12 @@ RUN if [ "${use_jdk}" = true ]; then \
         ${script_path}/install-jdk.sh; \
     fi
 
+ARG use_conda=false
+ADD scripts/install-conda.sh ${script_path}/install-conda.sh
+RUN if [ "${use_conda}" = true ]; then \
+        ${script_path}/install-conda.sh; \
+    fi
+
 # Finalize build
 ADD scripts/export-args.sh ${script_path}/export-args.sh
 RUN ${script_path}/export-args.sh
