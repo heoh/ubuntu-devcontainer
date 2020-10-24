@@ -62,6 +62,12 @@ RUN if [ "${use_yarn}" = true ]; then \
         ${script_path}/install-yarn.sh; \
     fi
 
+ARG use_intellij_idea=false
+ADD scripts/install-intellij-idea.sh ${script_path}/install-intellij-idea.sh
+RUN if [ "${use_intellij_idea}" = true ]; then \
+        ${script_path}/install-intellij-idea.sh; \
+    fi
+
 # Finalize build
 ADD scripts/export-args.sh ${script_path}/export-args.sh
 RUN ${script_path}/export-args.sh

@@ -17,6 +17,7 @@ services:
         - use_jdk=true
         - use_conda=true
         - use_yarn=true
+        - use_intellij_idea=true
     environment:
       - PUID=1000
       - PGID=1000
