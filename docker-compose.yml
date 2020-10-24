@@ -16,6 +16,7 @@ services:
         - use_build_essential=true
         - use_jdk=true
         - use_conda=true
+        - use_yarn=true
     environment:
       - PUID=1000
       - PGID=1000
