@@ -32,7 +32,7 @@ if [ -d "${USER_HOME}" ] && [ "$(stat -c "%U" "${USER_HOME}")" != "${USER_NAME}"
   mkdir -p /tmp/devcont-skel
   cp -r -T /etc/skel /tmp/devcont-skel
   chown -R ${PUID}:${PGID} /tmp/devcont-skel
-  cp -r -T /tmp/devcont-skel ${USER_HOME}
+  cp -rp -T /tmp/devcont-skel ${USER_HOME}
   rm -rf /tmp/devcont-skel
 fi
 

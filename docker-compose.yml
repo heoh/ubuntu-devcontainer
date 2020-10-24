@@ -15,6 +15,7 @@ services:
         - use_git=true
         - use_build_essential=true
         - use_jdk=true
+        - use_conda=true
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,6 +23,7 @@ services:
       - GROUP_NAME=${USER}
       # - DOCKER_GID=1001
       - DOCKER_ALLOWS_NON_ROOT=true
+      - CONDA_AUTO_ACTIVATE_BASE=true
     ports:
       - "2222:22"
     volumes:
