@@ -26,6 +26,12 @@ RUN if [ "${use_openssh_server}" = true ]; then \
         ${script_path}/install-openssh-server.sh; \
     fi
 
+ARG use_x11_server=false
+ADD scripts/install-x11-server.sh ${script_path}/install-x11-server.sh
+RUN if [ "${use_x11_server}" = true ]; then \
+        ${script_path}/install-x11-server.sh; \
+    fi
+
 ARG use_docker=false
 ADD scripts/install-docker.sh ${script_path}/install-docker.sh
 RUN if [ "${use_docker}" = true ]; then \
@@ -66,6 +72,12 @@ ARG use_intellij_idea=false
 ADD scripts/install-intellij-idea.sh ${script_path}/install-intellij-idea.sh
 RUN if [ "${use_intellij_idea}" = true ]; then \
         ${script_path}/install-intellij-idea.sh; \
+    fi
+
+ARG use_language_pack_ko=false
+ADD scripts/install-language-pack-ko.sh ${script_path}/install-language-pack-ko.sh
+RUN if [ "${use_language_pack_ko}" = true ]; then \
+        ${script_path}/install-language-pack-ko.sh; \
     fi
 
 # Finalize build
