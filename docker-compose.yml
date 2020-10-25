@@ -19,7 +19,7 @@ services:
         - use_conda=true
         - use_yarn=true
         - use_intellij_idea=true
-        - use_language_pack_ko=true
+        # - use_language_pack_ko=true
     environment:
       - PUID=1000
       - PGID=1000
