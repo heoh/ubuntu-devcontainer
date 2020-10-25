@@ -11,6 +11,7 @@ services:
         - base=ubuntu:20.04
         # - ubuntu_archive_url=http://mirror.kakao.com/ubuntu/
         - use_openssh_server=true
+        - use_x11_server=true
         - use_docker=true
         - use_git=true
         - use_build_essential=true

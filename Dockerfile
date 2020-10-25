@@ -26,6 +26,12 @@ RUN if [ "${use_openssh_server}" = true ]; then \
         ${script_path}/install-openssh-server.sh; \
     fi
 
+ARG use_x11_server=false
+ADD scripts/install-x11-server.sh ${script_path}/install-x11-server.sh
+RUN if [ "${use_x11_server}" = true ]; then \
+        ${script_path}/install-x11-server.sh; \
+    fi
+
 ARG use_docker=false
 ADD scripts/install-docker.sh ${script_path}/install-docker.sh
 RUN if [ "${use_docker}" = true ]; then \
