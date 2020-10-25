@@ -74,6 +74,12 @@ RUN if [ "${use_intellij_idea}" = true ]; then \
         ${script_path}/install-intellij-idea.sh; \
     fi
 
+ARG use_language_pack_ko=false
+ADD scripts/install-language-pack-ko.sh ${script_path}/install-language-pack-ko.sh
+RUN if [ "${use_language_pack_ko}" = true ]; then \
+        ${script_path}/install-language-pack-ko.sh; \
+    fi
+
 # Finalize build
 ADD scripts/export-args.sh ${script_path}/export-args.sh
 RUN ${script_path}/export-args.sh
