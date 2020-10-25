@@ -22,7 +22,7 @@ fi
 
 # Create user
 groupadd -g ${PGID} ${GROUP_NAME}
-useradd -md ${USER_HOME} -s /usr/bin/devcont-bash -g ${GROUP_NAME} -u ${PUID} ${USER_NAME}
+useradd -md ${USER_HOME} -s /bin/bash -g ${GROUP_NAME} -u ${PUID} ${USER_NAME}
 usermod -a -G sudo ${USER_NAME}
 
 # When not copied skel, manually copy
