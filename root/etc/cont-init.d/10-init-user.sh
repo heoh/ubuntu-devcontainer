@@ -1,5 +1,10 @@
 #!/usr/bin/with-devcontenv bash
 
+# Check initialized
+if [ "${DEVCONT_INITIALIZED}" = true ]; then
+  exit 0
+fi
+
 # Initialize Environment
 if [ ${PUID:-1000} -eq 0 ]; then
   source devcont-export PUID=0

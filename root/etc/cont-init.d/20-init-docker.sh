@@ -1,5 +1,10 @@
 #!/usr/bin/with-devcontenv bash
 
+# Check initialized
+if [ "${DEVCONT_INITIALIZED}" = true ]; then
+  exit 0
+fi
+
 # Check enabled
 if [ "${use_docker}" != true ]; then
   touch /etc/services.d/docker/down
