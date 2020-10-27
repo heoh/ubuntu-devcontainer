@@ -1,5 +1,10 @@
 #!/usr/bin/with-devcontenv bash
 
+# Check initialized
+if [ "${DEVCONT_INITIALIZED}" = true ]; then
+  exit 0
+fi
+
 # Add scripts for bash
 if [ -f ${USER_HOME}/.bashrc ]; then
   # .bash_logout is only called when the user exits normally.
