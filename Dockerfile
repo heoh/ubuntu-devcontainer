@@ -62,6 +62,12 @@ RUN if [ "${use_conda}" = true ]; then \
         ${script_path}/install-conda.sh; \
     fi
 
+ARG use_nodejs=false
+ADD scripts/install-nodejs.sh ${script_path}/install-nodejs.sh
+RUN if [ "${use_nodejs}" = true ]; then \
+        ${script_path}/install-nodejs.sh; \
+    fi
+
 ARG use_yarn=false
 ADD scripts/install-yarn.sh ${script_path}/install-yarn.sh
 RUN if [ "${use_yarn}" = true ]; then \

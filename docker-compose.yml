@@ -17,6 +17,7 @@ services:
         - use_build_essential=true
         - use_jdk=true
         - use_conda=true
+        - use_nodejs=true
         - use_yarn=true
         - use_intellij_idea=true
         # - use_language_pack_ko=true
