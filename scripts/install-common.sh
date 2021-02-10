@@ -3,6 +3,7 @@
 # Install common packages
 apt-get update
 apt-get install -y \
+  bash-completion \
   curl \
   locales \
   nano \
