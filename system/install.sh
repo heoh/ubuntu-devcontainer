@@ -11,4 +11,4 @@ $SCRIPT_DIR/devcont/install.sh
 echo -e '#!/bin/sh\nexit 0' > /usr/sbin/policy-rc.d
 
 apt update
-apt install -y init
+apt install -y dumb-init

@@ -1,6 +1,8 @@
 #!/usr/local/sbin/with-devcont bash
 
-SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+export DEBIAN_FRONTEND=noninteractive
+
+unminimize
 
 apt update
-apt install -y openssh-server
+apt install -y ubuntu-minimal ubuntu-standard ubuntu-desktop
