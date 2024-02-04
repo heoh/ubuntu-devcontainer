@@ -32,8 +32,8 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ./data:/mnt/host/data
-      # - /var/run:/mnt/host/var/run
-      # - /home/${USER}/workspaces:/home/${USER}/workspaces
-    # network_mode: bridge
-    # restart: unless-stopped
+      - ./data:/mnt/data
+      - /var/run:/mnt/host/var/run
+      - /home/${USER}/workspaces:/home/${USER}/workspaces
+    network_mode: bridge
+    restart: unless-stopped

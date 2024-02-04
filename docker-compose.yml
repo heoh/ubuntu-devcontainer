@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  devcontainer2:
+    container_name: devcontainer2
+    hostname: devcontainer2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "2223:22"
+    privileged: true
+    volumes:
+      - ./data:/mnt/host/data
+    # network_mode: bridge
+    # restart: unless-stopped

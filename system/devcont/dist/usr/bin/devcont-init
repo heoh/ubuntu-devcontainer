@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Running scripts in /etc/cont-init.d"
+if [ -d /etc/cont-init.d ]; then
+  for i in /etc/cont-init.d/*.sh; do
+    if [ -r $i ]; then
+      echo "Running $i"
+      $i
+    fi
+  done
+  unset i
+fi
+echo "Finished running scripts in /etc/cont-init.d"
+
+exec "$@"

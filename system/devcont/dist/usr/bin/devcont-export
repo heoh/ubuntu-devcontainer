@@ -1,0 +1,17 @@
+#!/bin/bash
+
+envdir=/var/run/devcont/env
+mkdir -p "$envdir"
+
+for arg in "$@"; do
+  if [[ "$arg" =~ "=" ]]; then
+    IFS='=' read -r name value <<< "$arg"
+  else
+    name="$arg"
+    value="${!name}"
+  fi
+
+  file="$envdir/$name"
+  echo "$value" > "$file"
+  export $name="$value"
+done
