@@ -1,3 +1,3 @@
-#!/usr/bin/with-devcont bash
+#!/usr/local/sbin/with-devcont bash
 
 echo aa
