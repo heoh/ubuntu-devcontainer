@@ -14,4 +14,7 @@ RUN packages/apt-mirror/install.sh
 ADD packages/openssh-server packages/openssh-server
 RUN packages/openssh-server/install.sh
 
+ADD packages/docker packages/docker
+RUN packages/docker/install.sh
+
 WORKDIR /root
