@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+ENV_DIR=/var/run/devcont/env
+
+for name in "$@"; do
+  file="$ENV_DIR/$name"
+
+  if [ -f "$file" ]; then
+    rm "$file"
+    unset $name
+  fi
+done

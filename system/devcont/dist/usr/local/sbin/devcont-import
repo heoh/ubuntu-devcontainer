@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ENV_DIR=/var/run/devcont/env
+
+for name in "$@"; do
+  file="$ENV_DIR/$name"
+  if [ -f "$file" ]; then
+    read -r value < "$file"
+    export $name="$value"
+  fi
+done

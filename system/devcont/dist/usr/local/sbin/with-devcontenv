@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+
+if [ -e /var/run/s6 ] && [ -e /command/with-contenv ]; then
+  PATH="/command:$PATH" /command/with-contenv "$SCRIPT_DIR/with-devcont" "$@"
+else
+  "$SCRIPT_DIR/with-devcont" "$@"
+fi

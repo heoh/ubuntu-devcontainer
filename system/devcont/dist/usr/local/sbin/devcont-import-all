@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+ENV_DIR=/var/run/devcont/env
+
+shopt -s nullglob dotglob
+files=("$ENV_DIR"/*)
+
+for file in "${files[@]}"; do
+  name=$(basename "$file")
+  . "$SCRIPT_DIR/devcont-import" $name
+done
