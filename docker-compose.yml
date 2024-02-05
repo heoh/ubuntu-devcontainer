@@ -15,4 +15,6 @@ services:
       - "2222:22"
     volumes:
       - ./shared:/mnt/shared
+      - ./user:/mnt/user
+    entrypoint: ["/mnt/user/init.sh", "/init"]
     privileged: true
