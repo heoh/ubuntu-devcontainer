@@ -2,5 +2,7 @@
 
 SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
+export PATH="$PATH:$SCRIPT_DIR"
 . "$SCRIPT_DIR/devcont-import-all"
+
 exec "$@"
