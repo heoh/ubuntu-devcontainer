@@ -1,3 +1,0 @@
-#!/usr/bin/with-devcontenv bash
-
-exec /usr/sbin/sshd -D
