@@ -7,7 +7,7 @@ ENTRYPOINT ["/init"]
 
 WORKDIR /tmp
 
-ARG APT_MIRROR_HOST
+ARG APT_ARCHIVE_URL
 ADD packages/apt-mirror packages/apt-mirror
 RUN packages/apt-mirror/install.sh
 

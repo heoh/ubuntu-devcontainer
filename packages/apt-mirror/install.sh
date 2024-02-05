@@ -1,13 +1,13 @@
 #!/usr/local/sbin/with-devcontenv bash
 
 # [Dockerfile]
-# ARG APT_MIRROR_HOST=archive.ubuntu.com
+# ARG APT_ARCHIVE_URL=http://archive.ubuntu.com/ubuntu
 
-if [ -z "$APT_MIRROR_HOST" ]; then
+if [ -z "$APT_ARCHIVE_URL" ]; then
   exit 0
 fi
 
-sed -i "s/archive.ubuntu.com/$APT_MIRROR_HOST/g" /etc/apt/sources.list
+sed -i "s@http://archive.ubuntu.com/ubuntu@$APT_ARCHIVE_URL@g" /etc/apt/sources.list
 
 apt update
 rm -rf /var/lib/apt/lists/*
