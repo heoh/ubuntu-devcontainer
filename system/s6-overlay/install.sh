@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# [Dockerfile]
+# ARG S6_OVERLAY_VERSION=3.1.6.2
+# ENTRYPOINT ["/init"]
+
 S6_OVERLAY_VERSION=${S6_OVERLAY_VERSION:-3.1.6.2}
 
 apt update
