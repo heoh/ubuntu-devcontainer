@@ -11,6 +11,9 @@ ARG APT_MIRROR_HOST
 ADD packages/apt-mirror packages/apt-mirror
 RUN packages/apt-mirror/install.sh
 
+ADD packages/ubuntu-desktop packages/ubuntu-desktop
+RUN packages/ubuntu-desktop/install.sh
+
 ADD packages/openssh-server packages/openssh-server
 RUN packages/openssh-server/install.sh
 
