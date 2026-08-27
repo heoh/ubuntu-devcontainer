@@ -16,6 +16,9 @@
   "privileged": true,
   "workspaceMount": "source=${localWorkspaceFolder}/user,target=/home/${localEnv:USER},type=bind",
   "workspaceFolder": "/home/${localEnv:USER}",
+  "hostRequirements": {
+    "gpu": "optional"
+  },
   "appPort": [
     "2222:2222"
   ],
@@ -24,6 +27,7 @@
     "ghcr.io/devcontainers/features/sshd:1": {
       "gatewayPorts": "yes"
     },
+    "ghcr.io/devcontainers/features/nvidia-cuda:2": {},
     "ghcr.io/devcontainers/features/docker-in-docker:4": {
       "moby": "false"
     },
