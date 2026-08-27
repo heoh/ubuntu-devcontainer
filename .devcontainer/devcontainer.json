@@ -1,0 +1,37 @@
+{
+  "name": "Ubuntu 26.04 Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "ubuntu26.04",
+      "USERNAME": "${localEnv:USER}",
+      "USER_UID": "${localEnv:UID:1000}",
+      "USER_GID": "${localEnv:UID:1000}",
+      "VSCODE_UID": "2000",
+      "VSCODE_GID": "2000"
+    }
+  },
+  "containerUser": "root",
+  "remoteUser": "${localEnv:USER}",
+  "privileged": true,
+  "workspaceMount": "source=${localWorkspaceFolder}/user,target=/home/${localEnv:USER},type=bind",
+  "workspaceFolder": "/home/${localEnv:USER}",
+  "appPort": [
+    "2222:2222"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "gatewayPorts": "yes"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {
+      "moby": "false"
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "lts"
+    }
+  }
+}
