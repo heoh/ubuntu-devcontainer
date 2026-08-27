@@ -22,6 +22,9 @@
   "appPort": [
     "2222:2222"
   ],
+  "runArgs": [
+    "--restart=unless-stopped"
+  ],
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/sshd:1": {
